@@ -1,96 +1,73 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.text.*?>
 
-<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.slms.DashboardController">
-    
-    <!-- SIDEBAR -->
-    <left>
-        <VBox style="-fx-background-color: #f8f8f8;" prefWidth="200" spacing="10">
-            <padding>
-                <Insets top="20" right="10" bottom="10" left="10"/>
-            </padding>
-            
-            <Label text="Dashboard" style="-fx-font-size: 16; -fx-font-weight: bold;" />
-            <Button text="📊 Dashboard" maxWidth="Infinity" />
-            <Button text="👥 Staffs" maxWidth="Infinity" />
-            <Button text="👤 Members" maxWidth="Infinity" />
-            <Button text="📚 Books" maxWidth="Infinity" />
-            <Button text="📖 Borrowed Books" maxWidth="Infinity" />
-            <Button text="🗓 Reservations" maxWidth="Infinity" />
-            <Button text="📢 Announcements" maxWidth="Infinity" />
-            <Button text="💬 Feedbacks" maxWidth="Infinity" />
-            <Button text="❓ Help" maxWidth="Infinity" />
-            <Button text="⚙ Settings" maxWidth="Infinity" />
-            <Button text="🚪 Logout" maxWidth="Infinity" style="-fx-text-fill: red;" />
-        </VBox>
-    </left>
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.slms.DashboardController"
+            fx:id="root" prefWidth="800" prefHeight="600">
 
-    <!-- TOP NAV -->
+    <!-- TOP NAVIGATION BAR -->
     <top>
-        <HBox style="-fx-background-color: #A4D17B;" prefHeight="60" alignment="CENTER_RIGHT" spacing="10">
+        <HBox style="-fx-background-color: #A4D17B;" prefHeight="60" alignment="CENTER" spacing="10">
             <padding>
                 <Insets top="0" right="20" bottom="0" left="20"/>
             </padding>
-            <Label text="Library Forms" style="-fx-font-size: 14;" />
-            <Label text="Admin" style="-fx-font-size: 14;" />
+          
+            <Label text="Manila-Sacramento Friendship Library " style="-fx-font-size: 16px; -fx-text-fill: white;" />
+              <Region HBox.hgrow="ALWAYS" />
+         <Button text="Forms" 
+        style="-fx-font-size: 16px; -fx-text-fill: white; -fx-background-color: transparent;" onAction="#openForms"/>
+
         </HBox>
     </top>
 
-    <!-- CENTER CONTENT -->
+    <!-- MAIN CONTENT AREA WITH SIDEBAR AND CENTER -->
     <center>
-        <VBox spacing="20" style="-fx-background-color: white;">
-            <padding>
-                <Insets top="20" right="20" bottom="20" left="20"/>
-            </padding>
+        <HBox fx:id="mainContent" spacing="0">
+            
+            <!-- SIDEBAR -->
+            <VBox fx:id="sideNav"
+                  style="-fx-background-color: #f8f8f8;"
+                  minWidth="180"
+                  maxWidth="220"
+                  prefWidth="200"
+                  spacing="10">
+                <padding>
+                    <Insets top="20" right="10" bottom="10" left="10"/>
+                </padding>
 
-            <!-- DASHBOARD CARDS -->
-            <HBox spacing="20">
-                <VBox style="-fx-background-color: #B2D8B2; -fx-background-radius: 10;" alignment="CENTER" prefWidth="180" prefHeight="100">
-                    <Label text="👍" style="-fx-font-size: 24;"/>
-                    <Label text="Attendance" />
-                    <Label text="0" />
-                </VBox>
-                <VBox style="-fx-background-color: #C4E4A9; -fx-background-radius: 10;" alignment="CENTER" prefWidth="180" prefHeight="100">
-                    <Label text="📚" style="-fx-font-size: 24;"/>
-                    <Label text="Library Resources" />
-                    <Label text="0" />
-                </VBox>
-                <VBox style="-fx-background-color: #A9D5A1; -fx-background-radius: 10;" alignment="CENTER" prefWidth="180" prefHeight="100">
-                    <Label text="🏛️" style="-fx-font-size: 24;"/>
-                    <Label text="Library Space" />
-                    <Label text="0" />
-                </VBox>
-            </HBox>
+             
+               <Button text="📊 Dashboard" maxWidth="Infinity" onAction="#handleDashboard" />
+<Button text="👥 Staffs" maxWidth="Infinity" onAction="#handleStaffs" />
+<Button text="👤 Members" maxWidth="Infinity" onAction="#handleMembers" />
+<Button text="📚 Books" maxWidth="Infinity" onAction="#handleBooks" />
+<Button text="📖 Borrowed Books" maxWidth="Infinity" onAction="#handleBorrowedBooks" />
+<Button text="❓ Help" maxWidth="Infinity" onAction="#handleHelp" />
+<Button text="⚙ Settings" maxWidth="Infinity" onAction="#handleSettings" />
+<Button text="🚪 Logout" maxWidth="Infinity" style="-fx-text-fill: red;" onAction="#handleLogout" />
 
-            <!-- RECENT ACTIVITY TABLE -->
-            <VBox spacing="10">
-                <Label text="Recent Activity" style="-fx-font-size: 16; -fx-font-weight: bold;" />
-                <HBox spacing="10">
-                    <Button text="Query Library Space"/>
-                    <Button text="Query Attendance"/>
-                    <Button text="Query Library Resources"/>
-                    <Button text="Query Joined Activities"/>
-                </HBox>
-                <HBox spacing="10">
-                    <TextField promptText="mm/dd/yyyy" />
-                    <Button text="Filter"/>
-                </HBox>
-                <TableView fx:id="activityTable" prefHeight="200">
-                    <columns>
-                        <TableColumn text="Activity" prefWidth="100"/>
-                        <TableColumn text="User" prefWidth="80"/>
-                        <TableColumn text="Age" prefWidth="50"/>
-                        <TableColumn text="Sex" prefWidth="70"/>
-                        <TableColumn text="School/Organization" prefWidth="150"/>
-                        <TableColumn text="Time" prefWidth="130"/>
-                    </columns>
-                </TableView>
             </VBox>
-        </VBox>
+
+            <!-- CONTENT AREA -->
+            <VBox fx:id="contentArea" spacing="20" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Static part: always visible -->
+    <Button fx:id="menuButton"
+        text="☰"
+        onAction="#handleMenuToggle"
+        style="-fx-font-size: 20px;
+               -fx-background-color: transparent;
+               -fx-font-weight: bold;" />
+
+    <!-- Dynamic part: will be replaced -->
+    <VBox fx:id="dynamicContent" spacing="20" VBox.vgrow="ALWAYS"/>
+</VBox>
+
+        </HBox>
     </center>
 </BorderPane>

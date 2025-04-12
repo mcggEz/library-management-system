@@ -25,7 +25,7 @@ public class LoginController {
         String password = passwordField.getText();
 
         // ✅ Hardcoded credentials
-        if (username.equals("admin") && password.equals("password")) {
+        if (username.equals("1") && password.equals("1")) {
             App.setRoot("Dashboard");  // Navigate to dashboard
         } else {
             

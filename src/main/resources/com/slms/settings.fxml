@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER">
+    <Label text="⚙ Settings Page" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <Label text="This is the settings view." />
+</VBox>
