@@ -5,11 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
-/**
- * JavaFX App
- */
+import com.slms.util.DatabaseSetup;
+
 public class App extends Application {
 
     private static Scene scene;
@@ -20,14 +20,10 @@ public class App extends Application {
         Parent root = loadFXML("Login");
 
         // Create a larger Scene
-        scene = new Scene(root, 800, 600); // 🔧 Adjusted from 640x480
+        scene = new Scene(root, 800, 600); // Adjusted size
 
-        stage.setTitle("Sacramento Library Management System"); // Optional: Set window title
+        stage.setTitle("Sacramento Library Management System"); // Optional title
         stage.setScene(scene);
-        
-
-        // Optional: prevent window resizing
-        // stage.setResizable(false);
 
         stage.show();
     }
@@ -42,6 +38,7 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+         DatabaseSetup.init();
         launch();
     }
 }

@@ -14,11 +14,11 @@
             <padding>
                 <Insets top="0" right="20" bottom="0" left="20"/>
             </padding>
-          
+
             <Label text="Manila-Sacramento Friendship Library " style="-fx-font-size: 16px; -fx-text-fill: white;" />
-              <Region HBox.hgrow="ALWAYS" />
-         <Button text="Forms" 
-        style="-fx-font-size: 16px; -fx-text-fill: white; -fx-background-color: transparent;" onAction="#openForms"/>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button text="Forms"
+                    style="-fx-font-size: 16px; -fx-text-fill: white; -fx-background-color: transparent;" onAction="#openForms"/>
 
         </HBox>
     </top>
@@ -26,7 +26,7 @@
     <!-- MAIN CONTENT AREA WITH SIDEBAR AND CENTER -->
     <center>
         <HBox fx:id="mainContent" spacing="0">
-            
+
             <!-- SIDEBAR -->
             <VBox fx:id="sideNav"
                   style="-fx-background-color: #f8f8f8;"
@@ -38,35 +38,35 @@
                     <Insets top="20" right="10" bottom="10" left="10"/>
                 </padding>
 
-             
-               <Button text="📊 Dashboard" maxWidth="Infinity" onAction="#handleDashboard" />
-<Button text="👥 Staffs" maxWidth="Infinity" onAction="#handleStaffs" />
-<Button text="👤 Members" maxWidth="Infinity" onAction="#handleMembers" />
-<Button text="📚 Books" maxWidth="Infinity" onAction="#handleBooks" />
-<Button text="📖 Borrowed Books" maxWidth="Infinity" onAction="#handleBorrowedBooks" />
-<Button text="❓ Help" maxWidth="Infinity" onAction="#handleHelp" />
-<Button text="⚙ Settings" maxWidth="Infinity" onAction="#handleSettings" />
-<Button text="🚪 Logout" maxWidth="Infinity" style="-fx-text-fill: red;" onAction="#handleLogout" />
+
+                <Button text="📊 Dashboard" maxWidth="Infinity" onAction="#handleDashboard" />
+                <Button text="👥 Staffs" maxWidth="Infinity" onAction="#handleStaffs" />
+                <Button text="👤 Members" maxWidth="Infinity" onAction="#handleMembers" />
+                <Button text="📚 Books" maxWidth="Infinity" onAction="#handleBooks" />
+                <Button text="📖 Borrowed Books" maxWidth="Infinity" onAction="#handleBorrowedBooks" />
+                <Button text="❓ Help" maxWidth="Infinity" onAction="#handleHelp" />
+                <Button text="⚙ Settings" maxWidth="Infinity" onAction="#handleSettings" />
+                <Button text="🚪 Logout" maxWidth="Infinity" style="-fx-text-fill: red;" onAction="#handleLogout" />
 
             </VBox>
 
             <!-- CONTENT AREA -->
             <VBox fx:id="contentArea" spacing="20" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
-    <padding>
-        <Insets top="20" right="20" bottom="20" left="20"/>
-    </padding>
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
 
-    <!-- Static part: always visible -->
-    <Button fx:id="menuButton"
-        text="☰"
-        onAction="#handleMenuToggle"
-        style="-fx-font-size: 20px;
+                <!-- Static part: always visible -->
+                <Button fx:id="menuButton"
+                        text="☰"
+                        onAction="#handleMenuToggle"
+                        style="-fx-font-size: 20px;
                -fx-background-color: transparent;
                -fx-font-weight: bold;" />
 
-    <!-- Dynamic part: will be replaced -->
-    <VBox fx:id="dynamicContent" spacing="20" VBox.vgrow="ALWAYS"/>
-</VBox>
+                <!-- Dynamic part: will be replaced -->
+                <VBox fx:id="dynamicContent" spacing="20" VBox.vgrow="ALWAYS"/>
+            </VBox>
 
         </HBox>
     </center>

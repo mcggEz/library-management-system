@@ -94,11 +94,11 @@ private void handleLogout() throws IOException {
 @FXML
 private void openForms() {
     try {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/slms/forms.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/slms/AttendanceForm.fxml"));
         Parent root = loader.load();
 
         Stage stage = new Stage();
-        stage.setTitle("Forms");
+        stage.setTitle("Attendance Form");
         stage.setScene(new Scene(root));
         stage.show();
     } catch (IOException e) {

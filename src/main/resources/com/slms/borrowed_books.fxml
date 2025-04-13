@@ -2,8 +2,26 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 
-<VBox xmlns:fx="http://javafx.com/fxml" spacing="10" alignment="CENTER">
-    <Label text="📖 Borrowed Books Page" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
-    <Label text="This is the borrowed books view." />
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.slms.BorrowedBooksController" spacing="10" alignment="TOP_CENTER" style="-fx-padding: 20px;">
+    <Label text="📖 Borrowed Books" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <HBox spacing="10">
+        <TextField fx:id="memberField" promptText="Member ID or Name" />
+        <TextField fx:id="bookField" promptText="Book Title" />
+    </HBox>
+    <HBox spacing="10">
+        <DatePicker fx:id="borrowedDate" promptText="Date Borrowed" />
+        <DatePicker fx:id="dueDate" promptText="Due Date" />
+    </HBox>
+
+    <Button text="Add Borrowed Record" onAction="#handleAddBorrowedBook" style="-fx-background-color: #4CAF50; -fx-text-fill: white;" />
+
+    <TableView fx:id="borrowedTable">
+        <columns>
+            <TableColumn fx:id="memberColumn" text="Member"/>
+            <TableColumn fx:id="bookColumn" text="Book"/>
+            <TableColumn fx:id="borrowedColumn" text="Date Borrowed"/>
+            <TableColumn fx:id="dueColumn" text="Due Date"/>
+        </columns>
+    </TableView>
 </VBox>
- 
