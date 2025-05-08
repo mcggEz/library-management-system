@@ -1,0 +1,1 @@
+A modern, JavaFX-based desktop application for efficiently managing a community library. This system streamlines library operations such as book inventory, member registration, borrowing and returns, and activity tracking.
